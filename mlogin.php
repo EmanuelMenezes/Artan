@@ -70,19 +70,19 @@ z-index: 99;
             <div class="row">
                 <div class="col-lg-4 col-md-6 ml-auto mr-auto">
                     <div class="card card-login">
-                        <form class="form" method="" action="">
+                        <form class="form" method="POST" action="index.php">
                             <div class="card-header card-header-primary text-center">
-                                <h4 class="card-title serif-font">Login - <?=$_SESSION['Company']?></h4>
+                                <h4 class="card-title serif-font">Login - Sistema Artan</h4>
                             </div>
 
                             <div class="card-body">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
-                                            <i class="material-icons">face</i>
+                                            <i class="material-icons">business</i>
                                         </span>
                                     </div>
-                                    <input type="text" name="inputUser" class="form-control" placeholder="Usuário">
+                                    <input type="text" name="inputCompany" class="form-control" placeholder="Código da Empresa">
                                 </div>
 
                                 <div class="input-group">
@@ -91,11 +91,11 @@ z-index: 99;
                                             <i class="material-icons">lock_outline</i>
                                         </span>
                                     </div>
-                                    <input type="password" name="inputPassword" class="form-control" placeholder="Senha">
+                                    <input type="password" name="inputCompanyCode" class="form-control" placeholder="Senha">
                                 </div>
                             </div>
                             <div class="footer text-center">
-                                <a href="index.php" class="btn btn-primary btn-link btn-wd btn-lg">Entrar</a>
+                                <input href="index.php" type="submit" class="btn btn-primary btn-link btn-wd btn-lg" value="Entrar"></input>
                             </div>
                         </form>
                     </div>

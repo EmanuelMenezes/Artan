@@ -335,10 +335,10 @@ The above copyright notice and this permission notice shall be included in all c
                             </td>
                             <td>Sign contract for "What are conference organizers afraid of?"</td>
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button>
                             </td>
@@ -356,10 +356,10 @@ The above copyright notice and this permission notice shall be included in all c
                             </td>
                             <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button>
                             </td>
@@ -378,10 +378,10 @@ The above copyright notice and this permission notice shall be included in all c
                             <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
                             </td>
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button>
                             </td>
@@ -399,10 +399,10 @@ The above copyright notice and this permission notice shall be included in all c
                             </td>
                             <td>Create 4 Invisible User Experiences you Never Knew About</td>
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button>
                             </td>
@@ -427,10 +427,10 @@ The above copyright notice and this permission notice shall be included in all c
                             <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
                             </td>
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button>
                             </td>
@@ -448,10 +448,10 @@ The above copyright notice and this permission notice shall be included in all c
                             </td>
                             <td>Sign contract for "What are conference organizers afraid of?"</td>
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button>
                             </td>
@@ -475,10 +475,10 @@ The above copyright notice and this permission notice shall be included in all c
                             </td>
                             <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button>
                             </td>
@@ -497,10 +497,10 @@ The above copyright notice and this permission notice shall be included in all c
                             <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
                             </td>
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button>
                             </td>
@@ -518,10 +518,10 @@ The above copyright notice and this permission notice shall be included in all c
                             </td>
                             <td>Sign contract for "What are conference organizers afraid of?"</td>
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button>
                             </td>
@@ -621,7 +621,7 @@ The above copyright notice and this permission notice shall be included in all c
   <script src="./assets/js/core/jquery.min.js"></script>
   <script src="./assets/js/core/popper.min.js"></script>
   <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
   <!-- Plugin for the momentJs  -->
   <script src="./assets/js/plugins/moment.min.js"></script>
   <!--  Plugin for Sweet Alert -->
