@@ -20,7 +20,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Material Kit by Creative Tim
+    Login | Artan Empreendimentos
     </title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -32,45 +32,47 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="./assets/demo/demo.css" rel="stylesheet" />
 </head>
 <style>
-    .circle-background{
-border-radius:50%;
--moz-border-radius:50%;
--webkit-border-radius:50%;
-background-color: blueviolet;
-width: 100%;
-height: 300%;
-position: fixed;
-overflow: hidden;
-z-index: 100;
-margin-left:-50%;
+.circle-background {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background-color: blueviolet;
+    width: 100%;
+    height: 300%;
+    position: fixed;
+    overflow: hidden;
+    z-index: 100;
+    margin-left: -50%;
 
 }
-.circle-background-2{
-border-radius:50%;
--moz-border-radius:50%;
--webkit-border-radius:50%;
-background-color: lightblue;
-width: 100%;
-height: 300%;
-position: fixed;
-overflow: hidden;
 
-margin-left:-47%;
-opacity: 30%;
-z-index: 99;
+.circle-background-2 {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background-color: lightblue;
+    width: 100%;
+    height: 300%;
+    position: fixed;
+    overflow: hidden;
+
+    margin-left: -47%;
+    opacity: 30%;
+    z-index: 99;
 }
 </style>
+
 <body class="login-page sidebar-collapse">
 
     <div class="page-header header-filter" style="background-color:#f7f7f7; background-size: cover; background-position: top center;">
-    <div class="circle-background align-self-center"></div>    
-    <div class="circle-background-2 align-self-center"></div>    
-    <div class="container align-self-center" style="z-index: 9999;">
+        <div class="circle-background align-self-center"></div>
+        <div class="circle-background-2 align-self-center"></div>
+        <div class="container align-self-center" style="z-index: 9999;">
 
             <div class="row">
                 <div class="col-lg-4 col-md-6 ml-auto mr-auto">
                     <div class="card card-login">
-                        <form class="form" method="" action="">
+                        <form class="form" method="POST" action="index.php">
                             <div class="card-header card-header-primary text-center">
                                 <h4 class="card-title serif-font">Login - <?=$_SESSION['Company']?></h4>
                             </div>
@@ -95,7 +97,7 @@ z-index: 99;
                                 </div>
                             </div>
                             <div class="footer text-center">
-                                <a href="index.php" class="btn btn-primary btn-link btn-wd btn-lg">Entrar</a>
+                                <input href="index.php" type="submit" class="btn btn-primary btn-link btn-wd btn-lg" value="Entrar"></input>
                             </div>
                         </form>
                     </div>
