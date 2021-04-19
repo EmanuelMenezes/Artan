@@ -57,8 +57,11 @@ if(isset($_SESSION['Company']) && !isset($_SESSION['User']) && !isset($_POST['in
 
 }
 if(isset($_SESSION['User'])){
-
-    header('Location:home.php');
+    if($_SESSION['Company'] == 'Artan'){
+        header('Location:master.php');
+    }else{
+        header('Location:home.php');
+    }
 
 }
 ?>

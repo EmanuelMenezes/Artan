@@ -1,0 +1,45 @@
+.square {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    margin: 20px 10px 20px 10px;
+    cursor: pointer;
+}
+
+.exist {
+    background-image: linear-gradient(45deg, #222222, #464646);
+    color: white;
+}
+
+.new {
+    background: none !important;
+    border: 2px dashed #222222;
+}
+
+.yellow {
+    background-image: linear-gradient(45deg, orange, #fdca02)!important;
+}
+
+.icon-box {
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.icon-box i {
+    font-size: 40px;
+}
+
+.name {
+    text-align: center;
+}
+
+.show {
+    display: block;
+}
+
+.action-menu {
+    float: right;
+}
