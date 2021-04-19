@@ -23,7 +23,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./notifications.html" style="border: 2px dashed #222222; border-radius: 25px;">
+                <a class="nav-link novo"style="border: 2px dashed #222222; border-radius: 25px;">
                     <i class="material-icons">add_circle_outline</i>
                     <p>Novo Projeto</p>
                 </a>
