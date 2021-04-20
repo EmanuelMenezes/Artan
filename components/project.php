@@ -1,3 +1,11 @@
+<?php
+if(isset($_POST)){
+    $project_name = $_POST['project-name'];
+} else {
+    
+}
+?>
+
 <div class="row">
     <div class="col-lg-6 col-md-12">
         <div class="card">

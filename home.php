@@ -38,28 +38,32 @@ if(!isset($_SESSION['Company']) || !isset($_SESSION['User'])){
 
 <body style="overflow: hidden;">
 
-    <div class="modal fade" id="newCompany" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Cadastro de Empresa Filial</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input type="text" class="form-control" placeholder="Nome Filial">
-                    <input type="text" class="form-control" placeholder="CNPJ">
-                </div>
-                <div class="modal-footer">
-                    <button id="save-btn" type="button" data-dismiss="modal" class="btn btn-success btn-link">Salvar</button>
-                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cancelar</button>
+    <form action="" method="post">
+        <div class="modal fade" id="newCompany" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                       <h5 class="modal-title">Cadastro de Empresa Filial</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="material-icons">clear</i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" class="form-control" placeholder="Nome Filial">
+                        <input type="text" class="form-control" placeholder="CNPJ">
+                    </div>
+                    <div class="modal-footer">
+                        <button id="save-btn" type="button" data-dismiss="modal"
+                            class="btn btn-success btn-link">Salvar</button>
+                        <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cancelar</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 
-    <form action="" method="post">
+
+    <form action="" method="post" id="project-form">
         <div class="modal fade" id="newProject" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -71,12 +75,15 @@ if(!isset($_SESSION['Company']) || !isset($_SESSION['User'])){
                     </div>
                     <div class="modal-body">
                         <input type="text" name="project-name" class="form-control" placeholder="Nome do Projeto">
-                        <input type="number" name="duration" class="form-control" style="width: 30%;float:left; margin-right: 10px" placeholder="Duração">
-                        <input type="text" name="type" class="form-control" readonly style="width: 30%;float:left" value="Semanas">
+                        <input type="number" name="duration" class="form-control"
+                            style="width: 30%;float:left; margin-right: 10px" placeholder="Duração">
+                        <input type="text" name="type" class="form-control" readonly style="width: 30%;float:left"
+                            value="Semanas">
 
                     </div>
                     <div class="modal-footer">
-                        <button id="save-btn" type="button" data-dismiss="modal" class="btn btn-success btn-link">Salvar</button>
+                        <button id="save-btn" type="button" data-dismiss="modal"
+                            class="btn btn-success btn-link">Salvar</button>
                         <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
@@ -84,6 +91,70 @@ if(!isset($_SESSION['Company']) || !isset($_SESSION['User'])){
         </div>
     </form>
 
+    <form action="" method="post" id="user-form">
+        <div class="modal fade" id="newUser" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cadastro de Usuário</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="material-icons">clear</i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" name="name" class="form-control" placeholder="Nome">
+                        <input type="text" name="cpf" class="form-control" placeholder="CPF">
+                        <input type="email" name="mail" class="form-control" placeholder="Email">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button id="save-btn-user" type="button"
+                            class="btn btn-success btn-link"  data-dismiss="modal">Salvar</button>
+                        <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+$('#save-btn-user').click(function(){
+
+    $.ajax({
+            type: "POST",
+            url: "people.php",
+            data: $("#user-form").serialize(),
+            beforeSend: function () {
+                
+            },
+            success: function (data) {
+            $(".return-table").html(data);
+            
+            $.ajax({
+            type: "POST",
+            url: "components/newproject.php",
+            data: $("#user-form").serialize(),
+            beforeSend: function () {
+                
+            },
+            success: function (data) {
+            $(".projeto").html(data);
+            },
+            error: function ()
+            {
+                
+            }
+        });
+            },
+            error: function ()
+            {
+                
+            }
+        });
+
+});
+
+    </script>
 
 
     <div class="wrapper">
@@ -96,7 +167,7 @@ if(!isset($_SESSION['Company']) || !isset($_SESSION['User'])){
         include('./components/navbar.php');
     ?>
             <div class="content">
-                <div class="content-fluid">
+                <div class="content-fluid return">
 
                     <?php 
         if($_SESSION['op_role'] == 'system'){

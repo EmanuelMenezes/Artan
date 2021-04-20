@@ -46,11 +46,15 @@ if(isset($_SESSION['Company']) && !isset($_SESSION['User']) && !isset($_POST['in
     $login = $operator->fetch();
 
     if($login){
+        
+        $select = $conn->query("SELECT op_name FROM operador WHERE op_user = ".$_POST['inputUser']);
+        $name = $select->fetch(PDO::FETCH_ASSOC);
 
         $_SESSION['User'] = $_POST['inputUser'];
         $_SESSION['op_role'] = $login['op_role'];
+        $_SESSION['username'] = $name['op_name'];
 
-    }else{
+    } else {
         require_once 'login.php';
     }
 
@@ -58,7 +62,9 @@ if(isset($_SESSION['Company']) && !isset($_SESSION['User']) && !isset($_POST['in
 }
 if(isset($_SESSION['User'])){
     if($_SESSION['Company'] == 'Artan'){
-        header('Location:master.php');
+        //header('Location:master.php');
+        header('Location:home.php');
+
     }else{
         header('Location:home.php');
     }
