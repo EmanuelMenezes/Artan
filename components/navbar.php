@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
     <div class="container-fluid">
         <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Bem vindo(a), <?=$_SESSION['username']?></a>
+            <a class="navbar-brand myfield" href="javascript:;">Bem vindo(a), <?=$_SESSION['username']?></a>
         </div>
 
         <div class="collapse navbar-collapse justify-content-end">
@@ -36,7 +36,21 @@
                         <a class="dropdown-item" href="index.php?s=o">Log out</a>
                     </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="javascript:;" onclick="returnHome();" id="navbarHome">
+                        <i class="material-icons">home</i>
+                        <p class="d-lg-none d-md-block">
+                            Account
+                        </p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<script>
+    function returnHome(){
+        location.reload(true);
+    }
+</script>

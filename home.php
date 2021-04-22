@@ -38,6 +38,8 @@ if(!isset($_SESSION['Company']) || !isset($_SESSION['User'])){
 
 <body style="overflow: hidden;">
 
+    <input type="hidden" name="" class="flag" value="">
+
     <form action="" method="post">
         <div class="modal fade" id="newCompany" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -51,35 +53,6 @@ if(!isset($_SESSION['Company']) || !isset($_SESSION['User'])){
                     <div class="modal-body">
                         <input type="text" class="form-control" placeholder="Nome Filial">
                         <input type="text" class="form-control" placeholder="CNPJ">
-                    </div>
-                    <div class="modal-footer">
-                        <button id="save-btn" type="button" data-dismiss="modal"
-                            class="btn btn-success btn-link">Salvar</button>
-                        <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cancelar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-
-
-    <form action="" method="post" id="project-form">
-        <div class="modal fade" id="newProject" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Cadastro de Novo Projeto</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <i class="material-icons">clear</i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" name="project-name" class="form-control" placeholder="Nome do Projeto">
-                        <input type="number" name="duration" class="form-control"
-                            style="width: 30%;float:left; margin-right: 10px" placeholder="Duração">
-                        <input type="text" name="type" class="form-control" readonly style="width: 30%;float:left"
-                            value="Semanas">
-
                     </div>
                     <div class="modal-footer">
                         <button id="save-btn" type="button" data-dismiss="modal"
@@ -125,26 +98,27 @@ $('#save-btn-user').click(function(){
             url: "people.php",
             data: $("#user-form").serialize(),
             beforeSend: function () {
-                
+
             },
             success: function (data) {
-            $(".return-table").html(data);
+
+                     $(".return-table").html(data);
             
-            $.ajax({
-            type: "POST",
-            url: "components/newproject.php",
-            data: $("#user-form").serialize(),
-            beforeSend: function () {
-                
-            },
-            success: function (data) {
-            $(".projeto").html(data);
-            },
-            error: function ()
-            {
-                
-            }
-        });
+                    $.ajax({
+                    type: "POST",
+                    url: "components/newproject.php",
+                    data: $("#user-form").serialize(),
+                    beforeSend: function () {
+                        
+                    },
+                    success: function (data) {
+                    $(".projeto").html(data);
+                    },
+                    error: function ()
+                    {
+                        
+                    }
+                });
             },
             error: function ()
             {

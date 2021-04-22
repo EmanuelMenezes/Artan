@@ -32,7 +32,7 @@
 
                         </div>
                     </div>
-                    <div class="square card new" id="newCompany" data-toggle="modal" data-target="#newCompany">
+                    <div class="square card new" id="newCompanyBtn" data-toggle="modal" data-target="#newCompany">
                         <div class="icon-box">
                             <i class="material-icons">add_circle_outline</i>
                         </div>
@@ -49,34 +49,24 @@
         <div class="col-12 card" style="display: inline;">
             <div style="overflow-x:auto;">
                 <div class="scroll" style="display: inline-flex;">
-                    <div class="square card exist project" id="filial2">
+                <?php 
+                    foreach($conn->query("SELECT * FROM projeto") as $row){
+                
+                ?>
+                    <div class="square card exist project" id="<?=$row['pj_id']?>">
                         <div class="icon-box">
                             <i class="material-icons">content_paste</i>
                         </div>
                         <div class="name">
-                            <h6><strong>Economia</strong></h6>
+                            <h6><strong><?=$row['pj_name']?></strong></h6>
 
                         </div>
                     </div>
-                    <div class="square card exist project" id="filial3">
-                        <div class="icon-box">
-                            <i class="material-icons">content_paste</i>
-                        </div>
-                        <div class="name">
-                            <h6><strong>Gestão de Tempo</strong></h6>
 
-                        </div>
-                    </div>
-                    <div class="square card exist project" id="filial4">
-                        <div class="icon-box">
-                            <i class="material-icons">content_paste</i>
-                        </div>
-                        <div class="name">
-                            <h6><strong>Rotina</strong></h6>
-
-                        </div>
-                    </div>
-                    <div class="square card new" id="newProject">
+                <?php 
+                    }
+                ?>
+                    <div class="square card new" id="newProj">
                         <div class="icon-box">
                             <i class="material-icons">add_circle_outline</i>
                         </div>
@@ -111,7 +101,7 @@ $('.project').click(function() {
 
     var id = this.id;
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "./components/project.php?id=" + id,
         data: $("#project-form").serialize(),
         beforeSend: function() {
@@ -127,7 +117,7 @@ $('.project').click(function() {
 });
 
 
-$('#newProject').click(function() {
+$('#newProj').click(function() {
 
     var id = this.id;
     $.ajax({
@@ -146,7 +136,7 @@ $('#newProject').click(function() {
     });
 });
 
-$('#newCompany').click(function() {
+$('#newComp').click(function() {
 
 var id = this.id;
 $.ajax({

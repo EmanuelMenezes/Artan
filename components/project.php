@@ -1,10 +1,74 @@
 <?php
-if(isset($_POST)){
-    $project_name = $_POST['project-name'];
+session_start();
+require('../database.php');
+
+if (isset($_POST['projname'])) {
+?>
+<script>
+$('.myfield').text('<?= $_POST['projname'] ?>');
+</script>
+<?php
+    $name = $_POST['projname'];
+    $inicio = $_POST['inicio'];
+    $fim = $_POST['fim'];
+
+
+    $insert = $conn->prepare('INSERT INTO projeto(pj_name, inicio,  final, empresa) VALUES(?,?,?,?)');
+    $insert->execute(array($name, $inicio, $fim, $_SESSION['Company']));
+
+    $select = $conn->prepare("SELECT MAX(pj_id) as pj_id FROM projeto");
+    $select->execute();
+
+    $id = $select->fetch();
+    foreach ($conn->query("SELECT * FROM operador") as $row) {
+        if (isset($_POST['check' . $row['op_id']])) {
+            $insert2 = $conn->prepare('INSERT INTO equipe(fk_op_id,fk_pj_id) VALUES(?,?)');
+            $insert2->execute(array($row['op_id'], $id['pj_id']));
+        }
+    }
 } else {
-    
+    $id = $_GET['id'];
+
+    $select = $conn->prepare("SELECT * FROM projeto WHERE pj_id = ?");
+    $select->execute(array($id));
+    $proj = $select->fetch();
+    ?>
+<script>
+$('.myfield').text('<?=$proj['pj_name']?>');
+</script>
+<?php
 }
 ?>
+
+
+<form action="" method="post">
+    <div class="modal fade" id="newObjective" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Novo Objetivo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="Nome do Objetivo">
+                    <input type="text" class="form-control" placeholder="Descrição">
+                    <input type="number" class="form-control" placeholder="Valor da Meta">
+                    <select class="form-control" name="tipo" id="">
+                        <option value=">=">Maior ou Igual (>=)</option>
+                        <option value=">=">Menor ou Igual (<=)</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-btn-obj" type="button" data-dismiss="modal" class="btn btn-success btn-link">Salvar</button>
+                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
 
 <div class="row">
     <div class="col-lg-6 col-md-12">
@@ -12,23 +76,11 @@ if(isset($_POST)){
             <div class="card-header card-header-tabs card-header-primary">
                 <div class="nav-tabs-navigation">
                     <div class="nav-tabs-wrapper">
-                        <span class="nav-tabs-title">Tasks:</span>
-                        <ul class="nav nav-tabs" data-tabs="tabs">
+                        <span class="nav-tabs-title">Objetivos</span>
+                        <ul class="nav nav-tabs">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#profile" data-toggle="tab">
-                                    <i class="material-icons">bug_report</i> Bugs
-                                    <div class="ripple-container"></div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#messages" data-toggle="tab">
-                                    <i class="material-icons">code</i> Website
-                                    <div class="ripple-container"></div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#settings" data-toggle="tab">
-                                    <i class="material-icons">cloud</i> Server
+                                <a class="nav-link" data-toggle="modal" data-target="#newObjective">
+                                    <i class="material-icons">add_circle_outline</i> Novo Objetivo
                                     <div class="ripple-container"></div>
                                 </a>
                             </li>
@@ -129,171 +181,34 @@ if(isset($_POST)){
                             </tbody>
                         </table>
                     </div>
-                    <div class="tab-pane" id="messages">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="" checked>
-                                                <span class="form-check-sign">
-                                                    <span class="check"></span>
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-                                    </td>
-                                    <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
-                                            <i class="material-icons">edit</i>
-                                        </button>
-                                        <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                            <i class="material-icons">close</i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <span class="form-check-sign">
-                                                    <span class="check"></span>
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>Sign contract for "What are conference organizers afraid of?"</td>
-                                    <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
-                                            <i class="material-icons">edit</i>
-                                        </button>
-                                        <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                            <i class="material-icons">close</i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane" id="settings">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <span class="form-check-sign">
-                                                    <span class="check"></span>
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
-                                    <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
-                                            <i class="material-icons">edit</i>
-                                        </button>
-                                        <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                            <i class="material-icons">close</i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="" checked>
-                                                <span class="form-check-sign">
-                                                    <span class="check"></span>
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-                                    </td>
-                                    <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
-                                            <i class="material-icons">edit</i>
-                                        </button>
-                                        <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                            <i class="material-icons">close</i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="" checked>
-                                                <span class="form-check-sign">
-                                                    <span class="check"></span>
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>Sign contract for "What are conference organizers afraid of?"</td>
-                                    <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" title="Editar Tarefa" class="btn btn-primary btn-link btn-sm">
-                                            <i class="material-icons">edit</i>
-                                        </button>
-                                        <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                            <i class="material-icons">close</i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-6 col-md-12">
-        <div class="card">
-            <div class="card-header card-header-warning">
-                <h4 class="card-title">Employees Stats</h4>
-                <p class="card-category">New employees on 15th September, 2016</p>
-            </div>
-            <div class="card-body table-responsive">
-                <table class="table table-hover">
-                    <thead class="text-warning">
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Salary</th>
-                        <th>Country</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Dakota Rice</td>
-                            <td>$36,738</td>
-                            <td>Niger</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Minerva Hooper</td>
-                            <td>$23,789</td>
-                            <td>Curaçao</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Sage Rodriguez</td>
-                            <td>$56,142</td>
-                            <td>Netherlands</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Philip Chaney</td>
-                            <td>$38,735</td>
-                            <td>Korea, South</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <div class="col-lg-6 col-md-12 tabela">
+        
     </div>
 </div>
+
+<script>
+$('#newObjective').click(function() {
+
+});
+
+    $.ajax({
+        type: "GET",
+        url: "./people.php",
+        data:{id: <?=$_GET['id']?>},
+        beforeSend: function () {
+            
+        },
+        success: function (data) {
+
+        $(".tabela").html(data);
+        },
+        error: function ()
+        {
+            
+        }
+    });
+</script>
